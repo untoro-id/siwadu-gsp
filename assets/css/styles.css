@@ -1,0 +1,146 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+}
+
+
+/* Container Utama */
+
+.flex {
+    display: flex;
+}
+
+
+/* Sidebar Default */
+
+#sidebar {
+    width: 260px;
+    min-width: 260px;
+    transition: all 0.3s;
+    overflow-x: hidden;
+}
+
+
+/* Sidebar Saat Mengecil (Desktop) */
+
+#sidebar.collapsed {
+    width: 80px;
+    min-width: 80px;
+}
+
+
+/* Sembunyikan Text & Deskripsi saat Collapsed */
+
+#sidebar.collapsed .sidebar-text {
+    display: none !important;
+}
+
+
+/* Overlay Mobile */
+
+#overlay {
+    display: none;
+    z-index: 1040;
+}
+
+#overlay.active {
+    display: block;
+}
+
+
+/* Layout Content agar fleksibel */
+
+.main-content {
+    flex-grow: 1;
+    min-width: 0;
+    /* Penting agar tabel tidak merusak layout */
+    transition: all 0.3s ease;
+}
+
+
+/* Responsif Mobile */
+
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 1050;
+    }
+    #sidebar.active {
+        left: 0;
+    }
+}
+
+.main-content {
+    transition: all 0.3s;
+}
+
+.nav-link-custom {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #94a3b8;
+    border-radius: 0.5rem;
+    margin-bottom: 0.25rem;
+    text-decoration: none;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.card-stat {
+    border: none;
+    border-radius: 1rem;
+    transition: transform 0.2s;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Mobile Overlay */
+
+#overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 1050;
+        height: 100vh;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    #overlay.active {
+        display: block;
+    }
+}
+
+
+/* Menampilkan kembali Bullet dan Numbering di Summernote */
+
+.note-editable ul {
+    list-style-type: disc !important;
+    list-style-position: inside !important;
+    margin-left: 1.5rem !important;
+}
+
+.note-editable ol {
+    list-style-type: decimal !important;
+    list-style-position: inside !important;
+    margin-left: 1.5rem !important;
+}
+
+
+/* Memastikan spasi antar list item */
+
+.note-editable li {
+    display: list-item !important;
+}
